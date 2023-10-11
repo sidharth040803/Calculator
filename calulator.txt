@@ -1,0 +1,57 @@
+class Calculator:
+    def __init__(self):
+        self.result = 0
+
+    def add(self, x):
+        self.result += x
+
+    def subtract(self, x):
+        self.result -= x
+
+    def multiply(self, x):
+        self.result *= x
+
+    def divide(self, x):
+        if x != 0:
+            self.result /= x
+        else:
+            print("Error: Division by zero")
+
+    def get_result(self):
+        return self.result
+
+    def clear(self):
+        self.result = 0
+
+if __name__ == "__main__":
+    calc = Calculator()
+    
+    while True:
+        print("Options:")
+        print("Enter 'add' to perform addition")
+        print("Enter 'subtract' to perform subtraction")
+        print("Enter 'multiply' to perform multiplication")
+        print("Enter 'divide' to perform division")
+        print("Enter 'clear' to reset the result")
+        print("Enter 'quit' to end the program")
+        
+        user_input = input(": ")
+
+        if user_input == "quit":
+            break
+        elif user_input in ["add", "subtract", "multiply", "divide"]:
+            number = float(input("Enter a number: "))
+            if user_input == "add":
+                calc.add(number)
+            elif user_input == "subtract":
+                calc.subtract(number)
+            elif user_input == "multiply":
+                calc.multiply(number)
+            elif user_input == "divide":
+                calc.divide(number)
+            print("Result:", calc.get_result())
+        elif user_input == "clear":
+            calc.clear()
+            print("Result has been cleared.")
+        else:
+            print("Invalid input. Please enter a valid option.")
